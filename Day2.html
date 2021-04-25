@@ -1,1 +1,73 @@
+<!DOCTYPE html>
 
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react@17/umd/react.development.js"
+    ></script>
+
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    ></script>
+
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+   
+</head>
+<body>
+   
+    <div id="root">Iniitial load</div>
+    <div id="root1">Iniitial load</div>
+    <div id="root2">Iniitial load</div>
+    <div id="eleID">Iniitial load</div>
+    <div id="root3">Iniitial load</div>
+
+    <script type="text/babel">
+class Hello extends React.Component {
+        render() {
+          return <div>Hello {this.props.toWhat}</div>;
+        }
+      }
+
+
+      function Welcome() {
+        return <h1>Hello React!</h1>;
+      }
+   function tick() {
+           const element = <h1>{new Date().toLocaleTimeString()}</h1>;
+          ReactDOM.render(element, document.getElementById("root1"));
+         }
+        setInterval(tick, 1000);
+
+      ReactDOM.render(<Welcome />, document.getElementById("root")); 
+
+      ReactDOM.render(
+        <Hello toWhat="Harshad..." />,
+        document.getElementById("root2")
+      );
+
+      var name = "Alex";
+      const ele = (
+        <h1>
+          Hello {name}! {2 + 2}
+        </h1>
+      );
+
+      ReactDOM.render(ele, document.getElementById("eleID"));
+
+      function Display(props) {
+        console.log("props : ", props);
+        return <h1>Hello {props.name} {props.age}</h1>;
+      }
+
+      ReactDOM.render(
+        <Display name="Harshad" age="30Plus" />,
+        document.getElementById("root3")
+      );
+
+      </script>
+</body>
+</html>
